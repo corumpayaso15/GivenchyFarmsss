@@ -9,9 +9,6 @@
       viewport-fit=cover">
 <title>Givenchy Farms</title>
 <style>
-/* =====================================================
-   RESET
-===================================================== */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -49,7 +46,6 @@ body {
   visibility: hidden;
   pointer-events: none;
 }
-/* VIDEO DE ENTRADA */
 .intro-video {
   position: absolute;
   inset: 0;
@@ -61,7 +57,6 @@ body {
     brightness(.55)
     contrast(1.2);
 }
-/* OSCURECER INTRO */
 .intro::after {
   content: "";
   position: absolute;
@@ -111,13 +106,11 @@ body {
 @keyframes enterPulse {
   0%,100% {
     opacity: .65;
-    transform:
-      scale(1);
+    transform: scale(1);
   }
   50% {
     opacity: 1;
-    transform:
-      scale(1.07);
+    transform: scale(1.07);
   }
 }
 /* =====================================================
@@ -136,7 +129,6 @@ body {
     brightness(.42)
     contrast(1.3);
 }
-/* CAPA NEGRA */
 .dark-layer {
   position: fixed;
   inset: 0;
@@ -151,7 +143,7 @@ body {
     );
 }
 /* =====================================================
-   ELEMENTOS FLOTANTES
+   FLOTANTES
 ===================================================== */
 .floating-container {
   position: fixed;
@@ -178,7 +170,6 @@ body {
     steps(2)
     infinite;
 }
-/* POSICIONES */
 .floating:nth-child(1) {
   left: 3%;
   top: 7%;
@@ -251,7 +242,7 @@ body {
   animation-delay: 4s;
 }
 /* =====================================================
-   ANIMACIONES FLOTANTES
+   ANIMACIONES
 ===================================================== */
 @keyframes floatingMove {
   0% {
@@ -290,20 +281,16 @@ body {
 }
 @keyframes floatingFlicker {
   0%,100% {
-    filter:
-      brightness(1);
+    filter: brightness(1);
   }
   45% {
-    filter:
-      brightness(.45);
+    filter: brightness(.45);
   }
   48% {
-    filter:
-      brightness(1.8);
+    filter: brightness(1.8);
   }
   52% {
-    filter:
-      brightness(.55);
+    filter: brightness(.55);
   }
 }
 @keyframes givenchyBounce {
@@ -394,7 +381,7 @@ body {
     translateY(0);
 }
 /* =====================================================
-   LOGO PRINCIPAL
+   LOGO
 ===================================================== */
 .brand-logo {
   width: 58px;
@@ -523,8 +510,7 @@ body {
 }
 @keyframes imageGlitch {
   0%,87%,100% {
-    transform:
-      translate(0);
+    transform: translate(0);
   }
   88% {
     transform:
@@ -539,8 +525,7 @@ body {
       translate(-4px,0);
   }
   92% {
-    transform:
-      translate(0);
+    transform: translate(0);
   }
 }
 @keyframes glitchOne {
@@ -575,16 +560,19 @@ body {
 }
 /* =====================================================
    PRE-ROLADO
+   SUBIDO PERO SIN TAPAR LA FOTO
 ===================================================== */
 .pre-roll {
   position: relative;
   width:
-    min(35vw, 145px);
-  margin-top: 2px;
+    min(32vw, 130px);
+  margin-top: -7px;
+  margin-bottom: -2px;
   display: flex;
   justify-content: center;
   align-items: center;
   opacity: .62;
+  z-index: 12;
   animation:
     prerollDance
     2.8s
@@ -607,7 +595,6 @@ body {
     ease-in-out
     infinite;
 }
-/* BRILLO */
 .pre-roll::after {
   content: "";
   position: absolute;
@@ -664,12 +651,10 @@ body {
 }
 @keyframes prerollTilt {
   0%,100% {
-    transform:
-      rotate(0deg);
+    transform: rotate(0deg);
   }
   50% {
-    transform:
-      rotate(-2deg);
+    transform: rotate(-2deg);
   }
 }
 @keyframes productShine {
@@ -693,12 +678,12 @@ body {
   }
 }
 /* =====================================================
-   TEXTO
+   ARRIBA PAPÁ MENCHO
 ===================================================== */
 .titulo {
-  margin-top: 2px;
+  margin-top: 1px;
   text-align: center;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 1.5px;
   text-transform: uppercase;
@@ -708,6 +693,7 @@ body {
     titlePulse
     2s
     infinite;
+  z-index: 15;
 }
 .verde {
   color: #00a651;
@@ -727,28 +713,28 @@ body {
   }
 }
 /* =====================================================
-   REDES SOCIALES
+   REDES
 ===================================================== */
 .socials {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  margin-top: 4px;
+  gap: 9px;
+  margin-top: 3px;
   position: relative;
   z-index: 20;
 }
 .social {
   position: relative;
-  width: 105px;
-  height: 30px;
+  width: 100px;
+  height: 29px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 8px;
   color: #fff;
   text-decoration: none;
-  font-size: 9px;
+  font-size: 8px;
   font-weight: 900;
   letter-spacing: 1px;
   background:
@@ -769,7 +755,6 @@ body {
   animation-delay:
     .35s;
 }
-/* INSTAGRAM */
 .instagram {
   border:
     1px solid
@@ -778,7 +763,6 @@ body {
     0 0 8px
     rgba(255,60,140,.7);
 }
-/* TIKTOK */
 .tiktok {
   border:
     1px solid
@@ -787,7 +771,6 @@ body {
     0 0 8px
     rgba(0,220,255,.7);
 }
-/* LÍNEA ANIMADA */
 .social::before {
   content: "";
   position: absolute;
@@ -819,7 +802,6 @@ body {
       transparent
     );
 }
-/* BAILE */
 @keyframes socialDance {
   0%,100% {
     transform:
@@ -863,11 +845,6 @@ body {
     left: 100%;
   }
 }
-.social:active {
-  transform:
-    scale(.88)
-    rotate(-5deg);
-}
 /* =====================================================
    TELÉFONOS
 ===================================================== */
@@ -886,18 +863,20 @@ body {
   .main-image {
     width: 88vw;
   }
+  /* PRE-ROLADO MÁS ARRIBA */
   .pre-roll {
-    width: 35vw;
-    max-width: 145px;
-    margin-top: 2px;
+    width: 32vw;
+    max-width: 130px;
+    margin-top: -7px;
+    margin-bottom: -2px;
   }
   .titulo {
-    font-size: 13px;
-    margin-top: 2px;
+    font-size: 14px;
+    margin-top: 1px;
     letter-spacing: 1.5px;
   }
   .socials {
-    margin-top: 4px;
+    margin-top: 3px;
     gap: 9px;
   }
   .social {
@@ -925,12 +904,14 @@ body {
   .pre-roll {
     width: 28vw;
     max-width: 115px;
+    margin-top: -6px;
+    margin-bottom: -2px;
   }
   .titulo {
     font-size: 12px;
   }
   .socials {
-    margin-top: 3px;
+    margin-top: 2px;
   }
   .social {
     height: 27px;
@@ -941,8 +922,7 @@ body {
 ===================================================== */
 @media (prefers-reduced-motion: reduce) {
   *,
-  *::before,
-  *::after {
+  *::before {
     animation-duration:
       .001ms !important;
     animation-iteration-count:
@@ -994,7 +974,6 @@ body {
      FLOTANTES
 ===================================================== -->
 <div class="floating-container">
-  <!-- GRÁFICOS -->
   <img
     class="floating"
     src="https://files.catbox.moe/qgbk6c.png">
@@ -1053,10 +1032,13 @@ body {
   <!-- TEXTO -->
   <div class="titulo">
     <span class="verde">
-      GIVENCHY
+      ARRIBA
     </span>
     <span class="blanco">
-      FARMS
+      PAPÁ
+    </span>
+    <span class="rojo">
+      MENCHO
     </span>
   </div>
   <!-- REDES -->
@@ -1114,9 +1096,7 @@ introVideo
 enter.addEventListener(
   "click",
   async () => {
-    /* ===============================
-       MÚSICA
-    =============================== */
+    /* MÚSICA */
     try {
       music.currentTime = 0;
       await music.play();
@@ -1126,9 +1106,7 @@ enter.addEventListener(
         error
       );
     }
-    /* ===============================
-       VIDEO PRINCIPAL
-    =============================== */
+    /* VIDEO PRINCIPAL */
     try {
       await mainVideo.play();
     } catch(error) {
@@ -1137,25 +1115,17 @@ enter.addEventListener(
         error
       );
     }
-    /* ===============================
-       PAUSAR INTRO
-    =============================== */
+    /* PAUSAR INTRO */
     try {
       introVideo.pause();
     } catch(error) {}
-    /* ===============================
-       OCULTAR INTRO
-    =============================== */
+    /* OCULTAR INTRO */
     intro.classList.add("hidden");
-    /* ===============================
-       MOSTRAR CONTENIDO
-    =============================== */
+    /* MOSTRAR CONTENIDO */
     setTimeout(() => {
       content.classList.add("visible");
     }, 150);
-    /* ===============================
-       ELIMINAR INTRO
-    =============================== */
+    /* ELIMINAR INTRO */
     setTimeout(() => {
       intro.remove();
     }, 850);
