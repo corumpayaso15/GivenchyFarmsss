@@ -2,849 +2,1830 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport"
-      content="width=device-width,
-      initial-scale=1.0,
-      maximum-scale=1.0,
-      viewport-fit=cover">
-<title>Givenchy Farms</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>BOUTIQUEV5MX — DEMO</title>
+
 <style>
+*{
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
+}
+
+html,body{
+    margin:0;
+    width:100%;
+    min-height:100%;
+    background:#050505;
+    color:#fff;
+    font-family:Arial,Helvetica,sans-serif;
+    overflow-x:hidden;
+}
+
+body{
+    min-height:100vh;
+}
+
+.hidden{
+    display:none!important;
+}
+
 /* =========================
-   RESET
+   LOGIN
 ========================= */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+
+#loginScreen{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:25px;
+    background:
+        radial-gradient(circle at 50% 20%,#191919 0%,#070707 45%,#000 100%);
 }
-html,
-body {
-  width: 100%;
-  height: 100%;
-  background: #000;
-  overflow: hidden;
+
+.login-box{
+    width:100%;
+    max-width:420px;
+    padding:32px 25px;
+    border:1px solid #333;
+    border-radius:18px;
+    background:rgba(10,10,10,.94);
+    box-shadow:0 0 35px rgba(255,255,255,.04);
+    text-align:center;
 }
-body {
-  color: #fff;
-  font-family: Arial, Helvetica, sans-serif;
+
+.brand{
+    font-size:30px;
+    font-weight:900;
+    letter-spacing:4px;
+    margin-bottom:5px;
 }
+
+.demo-label{
+    display:inline-block;
+    margin-bottom:25px;
+    padding:5px 12px;
+    border:1px solid #777;
+    border-radius:5px;
+    font-size:11px;
+    letter-spacing:2px;
+    color:#aaa;
+}
+
+.input{
+    width:100%;
+    height:52px;
+    margin-bottom:13px;
+    padding:0 16px;
+    border:1px solid #333;
+    border-radius:10px;
+    outline:none;
+    background:#111;
+    color:#fff;
+    font-size:16px;
+}
+
+.input:focus{
+    border-color:#777;
+}
+
+.main-btn{
+    width:100%;
+    height:53px;
+    border:0;
+    border-radius:10px;
+    background:#fff;
+    color:#000;
+    font-size:15px;
+    font-weight:900;
+    letter-spacing:1px;
+    cursor:pointer;
+}
+
+.error{
+    color:#ff3b3b;
+    min-height:20px;
+    margin-top:12px;
+    font-size:13px;
+}
+
+.demo-warning{
+    margin-top:20px;
+    color:#777;
+    font-size:10px;
+    line-height:1.5;
+}
+
 /* =========================
-   INTRO
+   APP
 ========================= */
-.intro {
-  position: fixed;
-  inset: 0;
-  z-index: 99999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #000;
-  overflow: hidden;
-  transition:
-    opacity .75s ease,
-    visibility .75s ease;
+
+#app{
+    min-height:100vh;
+    background:
+        radial-gradient(circle at 50% 0%,#161616,#050505 55%,#000);
 }
-.intro.hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
+
+.header{
+    padding:25px 20px 15px;
+    text-align:center;
+    border-bottom:1px solid #191919;
 }
-.intro-video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  background: #000;
-  filter:
-    brightness(.55)
-    contrast(1.2);
+
+.header-title{
+    font-size:24px;
+    font-weight:900;
+    letter-spacing:3px;
 }
-.intro::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(
-      circle,
-      transparent 12%,
-      rgba(0,0,0,.3) 55%,
-      rgba(0,0,0,.85) 100%
+
+.header-sub{
+    margin-top:5px;
+    color:#666;
+    font-size:9px;
+    letter-spacing:3px;
+}
+
+.content{
+    width:100%;
+    max-width:480px;
+    margin:auto;
+    padding:25px 20px 40px;
+}
+
+.balance-card{
+    padding:25px;
+    border:1px solid #292929;
+    border-radius:18px;
+    background:#0d0d0d;
+    margin-bottom:22px;
+}
+
+.small-title{
+    color:#777;
+    font-size:11px;
+    letter-spacing:2px;
+}
+
+.balance{
+    margin-top:8px;
+    font-size:38px;
+    font-weight:900;
+}
+
+.balance-currency{
+    color:#777;
+    font-size:12px;
+}
+
+.section{
+    padding:23px;
+    border:1px solid #252525;
+    border-radius:18px;
+    background:#0b0b0b;
+}
+
+.section-title{
+    font-size:18px;
+    font-weight:900;
+    margin-bottom:7px;
+}
+
+.section-desc{
+    color:#777;
+    font-size:12px;
+    margin-bottom:20px;
+    line-height:1.5;
+}
+
+/* =========================
+   DIGITOS
+========================= */
+
+.card-input{
+    width:100%;
+    height:58px;
+    border:1px solid #333;
+    border-radius:12px;
+    background:#050505;
+    color:#fff;
+    outline:none;
+    padding:0 14px;
+    font-size:20px;
+    letter-spacing:3px;
+    text-align:center;
+}
+
+.card-input:focus{
+    border-color:#888;
+}
+
+.counter{
+    text-align:right;
+    color:#555;
+    font-size:10px;
+    margin-top:7px;
+}
+
+/* =========================
+   TARJETA DEMO
+========================= */
+
+.demo-card{
+    position:relative;
+    width:100%;
+    aspect-ratio:1.586;
+    margin:22px 0;
+    padding:22px;
+    border-radius:18px;
+    overflow:hidden;
+    color:#111;
+    background:
+        linear-gradient(135deg,#fff 0%,#f0f0f0 48%,#cfcfcf 100%);
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.5),
+        inset 0 0 0 1px rgba(0,0,0,.15);
+}
+
+.demo-card::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        120deg,
+        transparent 20%,
+        rgba(255,255,255,.7) 50%,
+        transparent 80%
     );
-  pointer-events: none;
+    transform:translateX(-120%);
+    animation:cardShine 3s infinite;
 }
+
+@keyframes cardShine{
+    0%{transform:translateX(-120%)}
+    55%,100%{transform:translateX(120%)}
+}
+
+.card-brand{
+    position:relative;
+    z-index:2;
+    font-size:14px;
+    font-weight:900;
+    letter-spacing:2px;
+}
+
+.card-demo{
+    position:absolute;
+    top:22px;
+    right:22px;
+    z-index:2;
+    font-size:8px;
+    letter-spacing:2px;
+    color:#777;
+}
+
+.card-chip{
+    position:absolute;
+    z-index:2;
+    top:48%;
+    left:22px;
+    width:43px;
+    height:31px;
+    border-radius:6px;
+    background:#bbb;
+}
+
+.card-number{
+    position:absolute;
+    z-index:2;
+    left:22px;
+    bottom:29%;
+    font-size:18px;
+    letter-spacing:3px;
+    font-family:monospace;
+    font-weight:700;
+}
+
+.card-holder{
+    position:absolute;
+    z-index:2;
+    bottom:14px;
+    left:22px;
+    font-size:8px;
+    color:#555;
+    letter-spacing:2px;
+}
+
+.card-valid{
+    position:absolute;
+    z-index:2;
+    right:22px;
+    bottom:14px;
+    font-size:8px;
+    color:#555;
+}
+
 /* =========================
-   ENTER
+   MONTO
 ========================= */
-.enter {
-  position: relative;
-  z-index: 10;
-  border: 0;
-  background: transparent;
-  color: #fff;
-  font-size:
-    clamp(25px, 7vw, 38px);
-  font-weight: 900;
-  letter-spacing: 8px;
-  padding: 20px 30px;
-  cursor: pointer;
-  text-shadow:
-    0 0 10px rgba(255,255,255,.7),
-    0 0 25px rgba(255,255,255,.3);
-  animation:
-    enterPulse
-    1.8s
-    ease-in-out
-    infinite;
+
+.amount-box{
+    margin-top:20px;
 }
-.enter::after {
-  content: "";
-  display: block;
-  width: 60%;
-  height: 1px;
-  margin: 8px auto 0;
-  background:
-    rgba(255,255,255,.85);
+
+.amount-input{
+    width:100%;
+    height:60px;
+    border:1px solid #333;
+    border-radius:12px;
+    background:#050505;
+    color:#fff;
+    outline:none;
+    text-align:center;
+    font-size:28px;
+    font-weight:900;
 }
-@keyframes enterPulse {
-  0%,100% {
-    opacity: .65;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.07);
-  }
+
+.amount-input:focus{
+    border-color:#888;
 }
+
 /* =========================
-   VIDEO PRINCIPAL
+   LOADING
 ========================= */
-.main-video {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-  background: #000;
-  opacity: .16;
-  filter:
-    brightness(.42)
-    contrast(1.3);
+
+.loading{
+    margin-top:25px;
+    text-align:center;
 }
+
+.loading-title{
+    font-weight:900;
+    font-size:15px;
+    letter-spacing:2px;
+}
+
+.progress-container{
+    width:100%;
+    height:9px;
+    margin-top:18px;
+    overflow:hidden;
+    border-radius:10px;
+    background:#222;
+}
+
+.progress{
+    width:0%;
+    height:100%;
+    background:#fff;
+    transition:width .08s linear;
+}
+
+.progress-number{
+    margin-top:9px;
+    color:#777;
+    font-family:monospace;
+}
+
+.status{
+    margin-top:15px;
+    color:#aaa;
+    font-size:11px;
+}
+
 /* =========================
-   CAPA NEGRA
+   RESULTADO
 ========================= */
-.dark-layer {
-  position: fixed;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background:
-    radial-gradient(
-      circle at center,
-      transparent 4%,
-      rgba(0,0,0,.5) 55%,
-      #000 100%
-    );
+
+#result{
+    margin-top:25px;
 }
+
+.success{
+    padding:18px;
+    border:1px solid #555;
+    border-radius:12px;
+    text-align:center;
+    font-size:20px;
+    font-weight:900;
+    letter-spacing:2px;
+    background:#101010;
+}
+
+.voucher{
+    margin-top:15px;
+    padding:20px;
+    border:1px solid #333;
+    border-radius:15px;
+    background:#0c0c0c;
+}
+
+.voucher-title{
+    text-align:center;
+    font-weight:900;
+    letter-spacing:3px;
+    margin-bottom:18px;
+}
+
+.voucher-row{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    padding:9px 0;
+    border-bottom:1px solid #1d1d1d;
+    font-size:12px;
+}
+
+.voucher-row span:first-child{
+    color:#666;
+}
+
+.voucher-row span:last-child{
+    font-family:monospace;
+}
+
+.fictional{
+    margin-top:15px;
+    padding:10px;
+    text-align:center;
+    border:1px dashed #555;
+    color:#777;
+    font-size:9px;
+    letter-spacing:1px;
+}
+
+.delete-warning{
+    margin-top:20px;
+    padding:18px;
+    text-align:center;
+    border:1px solid #444;
+    border-radius:12px;
+    background:#0a0a0a;
+}
+
+.delete-warning strong{
+    display:block;
+    color:#fff;
+    font-size:13px;
+    margin-bottom:8px;
+}
+
+.countdown{
+    font-size:25px;
+    font-family:monospace;
+    font-weight:900;
+    margin-top:8px;
+}
+
 /* =========================
-   FLOTANTES
+   GLITCH BORRADO
 ========================= */
-.floating-container {
-  position: fixed;
-  inset: 0;
-  z-index: 3;
-  pointer-events: none;
-  overflow: hidden;
+
+#deleteEffect{
+    position:fixed;
+    z-index:9999;
+    inset:0;
+    display:none;
+    overflow:hidden;
+    background:#000;
 }
-.floating {
-  position: absolute;
-  width: 75px;
-  height: auto;
-  opacity: 0;
-  will-change:
-    transform,
-    opacity;
-  animation:
-    floatingMove
-    5.5s
-    linear
-    infinite,
-    floatingFlicker
-    1.5s
-    steps(2)
-    infinite;
+
+#deleteEffect.active{
+    display:block;
+    animation:screenFlash .16s infinite;
 }
-/* POSICIONES */
-.floating:nth-child(1) {
-  left: 3%;
-  top: 7%;
-  animation-delay: 0s;
+
+@keyframes screenFlash{
+    0%,100%{opacity:1}
+    50%{opacity:.25}
 }
-.floating:nth-child(2) {
-  right: 4%;
-  top: 15%;
-  animation-delay: 1s;
+
+.matrix{
+    position:absolute;
+    inset:0;
+    display:flex;
+    flex-wrap:wrap;
+    align-content:center;
+    justify-content:center;
+    gap:4px;
+    padding:10px;
+    overflow:hidden;
 }
-.floating:nth-child(3) {
-  left: 3%;
-  top: 45%;
-  animation-delay: 2s;
+
+.matrix span{
+    display:block;
+    width:30px;
+    color:#fff;
+    font-family:monospace;
+    font-size:14px;
+    opacity:.8;
+    animation:
+        numberGlitch .15s infinite alternate,
+        numberFloat 1s infinite linear;
 }
-.floating:nth-child(4) {
-  right: 4%;
-  top: 48%;
-  animation-delay: 2.8s;
+
+@keyframes numberGlitch{
+    from{
+        transform:translateX(-4px) skewX(-15deg);
+        opacity:.3;
+    }
+    to{
+        transform:translateX(4px) skewX(15deg);
+        opacity:1;
+    }
 }
-.floating:nth-child(5) {
-  left: 5%;
-  bottom: 10%;
-  animation-delay: 3.7s;
+
+@keyframes numberFloat{
+    from{transform:translateY(100vh)}
+    to{transform:translateY(-100vh)}
 }
-.floating:nth-child(6) {
-  right: 5%;
-  bottom: 12%;
-  animation-delay: 4.5s;
+
+.glitch-message{
+    position:absolute;
+    z-index:3;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:100%;
+    text-align:center;
+    font-size:22px;
+    font-weight:900;
+    letter-spacing:4px;
+    animation:
+        glitchText .12s infinite,
+        blinkText .4s infinite;
 }
+
+@keyframes glitchText{
+    0%{transform:translate(-50%,-50%) skewX(0)}
+    30%{transform:translate(calc(-50% + 10px),-50%) skewX(15deg)}
+    60%{transform:translate(calc(-50% - 8px),-50%) skewX(-15deg)}
+    100%{transform:translate(-50%,-50%) skewX(0)}
+}
+
+@keyframes blinkText{
+    0%,100%{opacity:1}
+    50%{opacity:.1}
+}
+
 /* =========================
-   LOGOS FLOTANTES
+   CERRAR SESION
 ========================= */
-.givenchy-floating {
-  position: absolute;
-  width: 55px;
-  height: auto;
-  opacity: 0;
-  will-change:
-    transform,
-    opacity;
-  animation:
-    givenchyBounce
-    5s
-    ease-in-out
-    infinite,
-    givenchyFlicker
-    1.4s
-    steps(2)
-    infinite;
+
+#logoutArea{
+    width:100%;
+    min-height:70vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
 }
-.givenchy-floating:nth-child(7) {
-  left: 17%;
-  top: 7%;
-  animation-delay: .7s;
+
+.close-btn{
+    width:min(400px,90%);
+    height:85px;
+    border:1px solid #555;
+    border-radius:16px;
+    background:#fff;
+    color:#000;
+    font-size:22px;
+    font-weight:900;
+    letter-spacing:4px;
+    cursor:pointer;
+    box-shadow:0 0 30px rgba(255,255,255,.08);
+    animation:closePulse 1.5s infinite;
 }
-.givenchy-floating:nth-child(8) {
-  right: 17%;
-  top: 25%;
-  animation-delay: 1.8s;
+
+@keyframes closePulse{
+    0%,100%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.025);
+    }
 }
-.givenchy-floating:nth-child(9) {
-  left: 14%;
-  bottom: 18%;
-  animation-delay: 3s;
-}
-.givenchy-floating:nth-child(10) {
-  right: 14%;
-  bottom: 8%;
-  animation-delay: 4s;
-}
+
 /* =========================
-   ANIMACIONES
+   FINAL SCREEN
 ========================= */
-@keyframes floatingMove {
-  0% {
-    opacity: 0;
-    transform:
-      translate(0,0)
-      rotate(-10deg)
-      scale(.5);
-  }
-  15% {
-    opacity: .3;
-  }
-  35% {
-    transform:
-      translate(25px,30px)
-      rotate(8deg)
-      scale(.7);
-  }
-  55% {
-    opacity: .12;
-    transform:
-      translate(-20px,65px)
-      rotate(-7deg)
-      scale(.6);
-  }
-  70% {
-    opacity: .4;
-  }
-  100% {
-    opacity: 0;
-    transform:
-      translate(25px,115px)
-      rotate(12deg)
-      scale(.45);
-  }
+
+#finalScreen{
+    position:fixed;
+    z-index:10000;
+    inset:0;
+    overflow:hidden;
+    background:#000;
 }
-@keyframes floatingFlicker {
-  0%,100% {
-    filter: brightness(1);
-  }
-  45% {
-    filter: brightness(.45);
-  }
-  48% {
-    filter: brightness(1.8);
-  }
-  52% {
-    filter: brightness(.55);
-  }
+
+.final-bg{
+    position:absolute;
+    inset:0;
+    background:
+        radial-gradient(circle,#180000 0%,#050000 40%,#000 80%);
 }
-@keyframes givenchyBounce {
-  0% {
-    opacity: 0;
-    transform:
-      translate(0,0)
-      rotate(-8deg)
-      scale(.4);
-  }
-  15% {
-    opacity: .35;
-  }
-  30% {
-    transform:
-      translate(30px,-20px)
-      rotate(10deg)
-      scale(.65);
-  }
-  50% {
-    opacity: .15;
-    transform:
-      translate(-25px,30px)
-      rotate(-7deg)
-      scale(.5);
-  }
-  70% {
-    opacity: .4;
-    transform:
-      translate(20px,60px)
-      rotate(8deg)
-      scale(.65);
-  }
-  100% {
-    opacity: 0;
-    transform:
-      translate(-15px,110px)
-      rotate(-10deg)
-      scale(.35);
-  }
-}
-@keyframes givenchyFlicker {
-  0%,100% {
+
+.final-image{
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:min(78vw,430px);
+    max-height:75vh;
+    object-fit:contain;
+    transform:translate(-50%,-50%);
+    animation:
+        danceImage .22s infinite,
+        imageBlink .7s infinite;
     filter:
-      brightness(1)
-      contrast(1);
-  }
-  47% {
-    filter: brightness(.5);
-  }
-  50% {
-    filter:
-      brightness(1.7)
-      contrast(1.4);
-  }
-  53% {
-    filter: brightness(.7);
-  }
+        contrast(1.3)
+        drop-shadow(0 0 15px rgba(255,0,0,.4));
 }
-/* =========================
-   CONTENIDO
-========================= */
-.content {
-  position: relative;
-  z-index: 10;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding-top:
-    max(7px, env(safe-area-inset-top));
-  opacity: 0;
-  transform:
-    scale(.96)
-    translateY(8px);
-  transition:
-    opacity .8s ease,
-    transform .8s ease;
+
+@keyframes danceImage{
+    0%{
+        transform:translate(-50%,-50%) rotate(-2deg) scale(1);
+    }
+    25%{
+        transform:translate(calc(-50% - 8px),calc(-50% + 5px)) rotate(2deg) scale(1.02);
+    }
+    50%{
+        transform:translate(calc(-50% + 8px),calc(-50% - 5px)) rotate(-3deg) scale(.98);
+    }
+    75%{
+        transform:translate(calc(-50% - 4px),calc(-50% + 3px)) rotate(3deg) scale(1.03);
+    }
+    100%{
+        transform:translate(-50%,-50%) rotate(-2deg) scale(1);
+    }
 }
-.content.visible {
-  opacity: 1;
-  transform:
-    scale(1)
-    translateY(0);
+
+@keyframes imageBlink{
+    0%,100%{opacity:1}
+    48%{opacity:1}
+    50%{opacity:.35}
+    52%{opacity:1}
 }
-/* =========================
-   LOGO
-========================= */
-.brand-logo {
-  width: 58px;
-  height: auto;
-  margin-bottom: 3px;
-  object-fit: contain;
-  filter:
-    drop-shadow(
-      0 0 13px
-      rgba(255,0,0,.3)
-    );
-  animation:
-    brandDance
-    2.4s
-    ease-in-out
-    infinite;
+
+/* NOMBRE ROJO */
+
+.red-name{
+    position:absolute;
+    z-index:4;
+    color:#ff0000;
+    font-size:clamp(38px,10vw,90px);
+    font-weight:1000;
+    letter-spacing:5px;
+    text-transform:uppercase;
+    text-shadow:
+        3px 0 #fff,
+        -3px 0 #ff0000,
+        0 0 12px #ff0000,
+        0 0 30px #ff0000;
+    white-space:nowrap;
+    pointer-events:none;
+    animation:
+        nameDance .16s infinite,
+        nameBlink .55s infinite;
 }
-@keyframes brandDance {
-  0%,100% {
-    transform:
-      translateY(0)
-      rotate(0deg);
-  }
-  25% {
-    transform:
-      translateY(-5px)
-      rotate(-3deg);
-  }
-  50% {
-    transform:
-      translateY(2px)
-      rotate(3deg);
-  }
-  75% {
-    transform:
-      translateY(-3px)
-      rotate(-2deg);
-  }
+
+.name1{
+    top:7%;
+    left:50%;
+    transform:translateX(-50%);
 }
-/* =========================
-   FOTO PRINCIPAL
-========================= */
-.main-image {
-  position: relative;
-  width:
-    min(88vw, 470px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation:
-    imageBounce
-    2.5s
-    ease-in-out
-    infinite;
+
+.name2{
+    top:27%;
+    left:50%;
+    transform:translateX(-50%) rotate(-4deg);
 }
-.main-image > img {
-  width: 100%;
-  height: auto;
-  display: block;
-  filter:
-    contrast(1.2)
-    brightness(.93)
-    drop-shadow(
-      0 0 25px
-      rgba(0,0,0,.95)
-    );
-  animation:
-    imageGlitch
-    2.7s
-    infinite;
+
+.name3{
+    bottom:24%;
+    left:50%;
+    transform:translateX(-50%) rotate(3deg);
 }
-/* =========================
-   GLITCH
-========================= */
-.main-image::before,
-.main-image::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    url(
-      "https://files.catbox.moe/3ixrpv.png"
-    );
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  opacity: 0;
-  pointer-events: none;
+
+.name4{
+    bottom:5%;
+    left:50%;
+    transform:translateX(-50%) rotate(-3deg);
 }
-.main-image::before {
-  animation:
-    glitchOne
-    2.5s
-    infinite;
+
+@keyframes nameDance{
+    0%{
+        transform:translateX(-50%) translate(0,0) skewX(0);
+    }
+    20%{
+        transform:translateX(-50%) translate(8px,-4px) skewX(12deg);
+    }
+    40%{
+        transform:translateX(-50%) translate(-10px,5px) skewX(-14deg);
+    }
+    60%{
+        transform:translateX(-50%) translate(5px,2px) skewX(8deg);
+    }
+    80%{
+        transform:translateX(-50%) translate(-5px,-5px) skewX(-8deg);
+    }
+    100%{
+        transform:translateX(-50%) translate(0,0) skewX(0);
+    }
 }
-.main-image::after {
-  animation:
-    glitchTwo
-    2.5s
-    infinite;
+
+@keyframes nameBlink{
+    0%,100%{
+        opacity:1;
+    }
+    45%{
+        opacity:.9;
+    }
+    48%{
+        opacity:.05;
+    }
+    52%{
+        opacity:1;
+    }
 }
-@keyframes imageBounce {
-  0%,100% {
-    transform:
-      translateY(0)
-      rotate(0deg);
-  }
-  25% {
-    transform:
-      translateY(-6px)
-      rotate(-1deg);
-  }
-  50% {
-    transform:
-      translateY(3px)
-      rotate(1deg);
-  }
-  75% {
-    transform:
-      translateY(-3px)
-      rotate(0deg);
-  }
+
+/* líneas glitch */
+
+.glitch-lines{
+    position:absolute;
+    z-index:5;
+    inset:0;
+    pointer-events:none;
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            transparent 0px,
+            transparent 3px,
+            rgba(255,0,0,.06) 4px,
+            transparent 5px
+        );
+    mix-blend-mode:screen;
+    animation:scanlines .25s infinite;
 }
-@keyframes imageGlitch {
-  0%,87%,100% {
-    transform: translate(0);
-  }
-  88% {
-    transform:
-      translate(-7px,2px);
-  }
-  89% {
-    transform:
-      translate(8px,-2px);
-  }
-  90% {
-    transform:
-      translate(-4px,0);
-  }
-  92% {
-    transform: translate(0);
-  }
+
+@keyframes scanlines{
+    0%{transform:translateY(0)}
+    50%{transform:translateY(4px)}
+    100%{transform:translateY(-3px)}
 }
-@keyframes glitchOne {
-  0%,83%,100% {
-    opacity: 0;
-  }
-  84% {
-    opacity: .55;
-    transform:
-      translate(-11px,0);
-    clip-path:
-      inset(10% 0 65% 0);
-  }
-  87% {
-    opacity: 0;
-  }
-}
-@keyframes glitchTwo {
-  0%,88%,100% {
-    opacity: 0;
-  }
-  89% {
-    opacity: .5;
-    transform:
-      translate(11px,0);
-    clip-path:
-      inset(55% 0 20% 0);
-  }
-  92% {
-    opacity: 0;
-  }
-}
-/* =========================
-   ARRIBA MÉXICO
-========================= */
-.titulo {
-  margin-top: 4px;
-  text-align: center;
-  font-size: 16px;
-  font-weight: 900;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  text-shadow:
-    0 0 8px #000,
-    0 0 15px rgba(255,255,255,.25);
-  animation:
-    titleDance
-    1.7s
-    ease-in-out
-    infinite;
-}
-.verde {
-  color: #006847;
-}
-.blanco {
-  color: #fff;
-}
-.rojo {
-  color: #ce1126;
-}
-@keyframes titleDance {
-  0%,100% {
-    transform:
-      translateY(0)
-      rotate(0deg);
-    opacity: .75;
-  }
-  25% {
-    transform:
-      translateY(-4px)
-      rotate(-2deg);
-    opacity: 1;
-  }
-  50% {
-    transform:
-      translateY(2px)
-      rotate(2deg);
-    opacity: .6;
-  }
-  75% {
-    transform:
-      translateY(-3px)
-      rotate(-1deg);
-    opacity: 1;
-  }
-}
-/* =========================
-   MÓVIL
-========================= */
-@media (max-width:430px) {
-  .content {
-    padding-top:
-      max(
-        7px,
-        env(safe-area-inset-top)
-      );
-  }
-  .brand-logo {
-    width: 58px;
-    margin-bottom: 3px;
-  }
-  .main-image {
-    width: 88vw;
-  }
-  .titulo {
-    font-size: 15px;
-    margin-top: 4px;
-    letter-spacing: 1.5px;
-  }
-  .floating {
-    width: 58px;
-  }
-  .givenchy-floating {
-    width: 46px;
-  }
-}
-/* =========================
-   PANTALLAS BAJAS
-========================= */
-@media (max-height:700px) {
-  .brand-logo {
-    width: 48px;
-  }
-  .main-image {
-    width: 82vw;
-  }
-  .titulo {
-    font-size: 13px;
-  }
-}
-/* =========================
-   REDUCE MOTION
-========================= */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration:
-      .001ms !important;
-    animation-iteration-count:
-      1 !important;
-  }
+
+.final-corner{
+    position:absolute;
+    z-index:6;
+    left:50%;
+    bottom:2%;
+    transform:translateX(-50%);
+    color:#555;
+    font-family:monospace;
+    font-size:8px;
+    letter-spacing:2px;
 }
 </style>
 </head>
+
 <body>
+
 <!-- =========================
-     INTRO
+     LOGIN
 ========================= -->
-<section
-  class="intro"
-  id="intro">
-  <video
-    class="intro-video"
-    id="introVideo"
-    src="https://files.catbox.moe/l8qahy.mov"
-    autoplay
-    muted
-    loop
-    playsinline
-    webkit-playsinline
-    preload="auto">
-  </video>
-  <button
-    class="enter"
-    id="enter"
-    type="button">
-    ENTER
-  </button>
+
+<section id="loginScreen">
+
+    <div class="login-box">
+
+        <div class="brand">BOUTIQUEV5MX</div>
+
+        <div class="demo-label">
+            DEMO FICTICIA
+        </div>
+
+        <input
+            id="username"
+            class="input"
+            type="text"
+            autocomplete="off"
+            placeholder="USUARIO"
+        >
+
+        <input
+            id="password"
+            class="input"
+            type="password"
+            autocomplete="off"
+            placeholder="CONTRASEÑA"
+        >
+
+        <button
+            class="main-btn"
+            onclick="login()"
+        >
+            INICIAR SESIÓN
+        </button>
+
+        <div id="loginError" class="error"></div>
+
+        <div class="demo-warning">
+            ESTA INTERFAZ ES UNA MAQUETA DEMO FICTICIA.
+            NO REALIZA OPERACIONES BANCARIAS NI PROCESA DINERO REAL.
+        </div>
+
+    </div>
+
 </section>
+
+
 <!-- =========================
-     VIDEO PRINCIPAL
+     APP
 ========================= -->
-<video
-  class="main-video"
-  id="mainVideo"
-  src="https://files.catbox.moe/l8qahy.mov"
-  muted
-  loop
-  playsinline
-  webkit-playsinline
-  preload="auto">
-</video>
-<div class="dark-layer"></div>
+
+<section id="app" class="hidden">
+
+    <header class="header">
+
+        <div class="header-title">
+            BOUTIQUEV5MX
+        </div>
+
+        <div class="header-sub">
+            BANCA MÓVIL — DEMO
+        </div>
+
+    </header>
+
+
+    <main class="content">
+
+        <div class="balance-card">
+
+            <div class="small-title">
+                SALDO DEMO
+            </div>
+
+            <div class="balance">
+                $0.00
+            </div>
+
+            <div class="balance-currency">
+                MXN — FICTICIO
+            </div>
+
+        </div>
+
+
+        <div id="operationSection" class="section">
+
+            <div class="section-title">
+                INGRESAR SALDO
+            </div>
+
+            <div class="section-desc">
+                Introduce los 16 dígitos de la tarjeta ficticia
+                para continuar con la simulación.
+            </div>
+
+
+            <input
+                id="cardDigits"
+                class="card-input"
+                inputmode="numeric"
+                maxlength="16"
+                autocomplete="off"
+                placeholder="0000 0000 0000 0000"
+                oninput="handleCardInput(this)"
+            >
+
+            <div id="digitCounter" class="counter">
+                0 / 16
+            </div>
+
+
+            <!-- TARJETA -->
+
+            <div id="demoCard" class="demo-card hidden">
+
+                <div class="card-brand">
+                    BOUTIQUEV5MX
+                </div>
+
+                <div class="card-demo">
+                    DEMO
+                </div>
+
+                <div class="card-chip"></div>
+
+                <div
+                    id="displayCardNumber"
+                    class="card-number"
+                >
+                    0000 0000 0000 0000
+                </div>
+
+                <div class="card-holder">
+                    TARJETA FICTICIA
+                </div>
+
+                <div class="card-valid">
+                    SIN VALIDEZ
+                </div>
+
+            </div>
+
+
+            <!-- MONTO -->
+
+            <div
+                id="amountBox"
+                class="amount-box hidden"
+            >
+
+                <input
+                    id="amount"
+                    class="amount-input"
+                    type="number"
+                    min="1"
+                    step="0.01"
+                    placeholder="$ 0.00"
+                >
+
+                <br><br>
+
+                <button
+                    class="main-btn"
+                    onclick="startOperation()"
+                >
+                    CONTINUAR
+                </button>
+
+            </div>
+
+
+            <!-- LOADING -->
+
+            <div
+                id="loading"
+                class="loading hidden"
+            >
+
+                <div class="loading-title">
+                    PROCESANDO DEMO
+                </div>
+
+                <div class="progress-container">
+
+                    <div
+                        id="progress"
+                        class="progress"
+                    ></div>
+
+                </div>
+
+                <div
+                    id="progressNumber"
+                    class="progress-number"
+                >
+                    0%
+                </div>
+
+                <div
+                    id="status"
+                    class="status"
+                >
+                    Iniciando...
+                </div>
+
+            </div>
+
+
+            <!-- RESULTADO -->
+
+            <div
+                id="result"
+                class="hidden"
+            ></div>
+
+        </div>
+
+
+        <!-- CERRAR SESIÓN -->
+
+        <div
+            id="logoutArea"
+            class="hidden"
+        >
+
+            <button
+                id="closeSessionBtn"
+                class="close-btn"
+                onclick="finishSession()"
+            >
+                CERRAR SESIÓN
+            </button>
+
+        </div>
+
+    </main>
+
+</section>
+
+
 <!-- =========================
-     FLOTANTES
+     EFECTO BORRAR
 ========================= -->
-<div class="floating-container">
-  <img
-    class="floating"
-    src="https://files.catbox.moe/qgbk6c.png">
-  <img
-    class="floating"
-    src="https://files.catbox.moe/qgbk6c.png">
-  <img
-    class="floating"
-    src="https://files.catbox.moe/qgbk6c.png">
-  <img
-    class="floating"
-    src="https://files.catbox.moe/qgbk6c.png">
-  <img
-    class="floating"
-    src="https://files.catbox.moe/qgbk6c.png">
-  <img
-    class="floating"
-    src="https://files.catbox.moe/qgbk6c.png">
-  <img
-    class="givenchy-floating"
-    src="https://files.catbox.moe/1k4n1o.png">
-  <img
-    class="givenchy-floating"
-    src="https://files.catbox.moe/1k4n1o.png">
-  <img
-    class="givenchy-floating"
-    src="https://files.catbox.moe/1k4n1o.png">
-  <img
-    class="givenchy-floating"
-    src="https://files.catbox.moe/1k4n1o.png">
+
+<div id="deleteEffect">
+
+    <div id="matrix" class="matrix"></div>
+
+    <div class="glitch-message">
+        BORRANDO DATOS...
+    </div>
+
 </div>
+
+
 <!-- =========================
-     CONTENIDO
+     PANTALLA FINAL
 ========================= -->
-<main
-  class="content"
-  id="content">
-  <img
-    class="brand-logo"
-    src="https://files.catbox.moe/1k4n1o.png"
-    alt="Givenchy Farms">
-  <div class="main-image">
+
+<div
+    id="finalScreen"
+    class="hidden"
+>
+
+    <div class="final-bg"></div>
+
+    <!-- NOMBRE REPETIDO -->
+
+    <div class="red-name name1">
+        BOUTIQUEV5MX
+    </div>
+
+    <div class="red-name name2">
+        BOUTIQUEV5MX
+    </div>
+
+    <div class="red-name name3">
+        BOUTIQUEV5MX
+    </div>
+
+    <div class="red-name name4">
+        BOUTIQUEV5MX
+    </div>
+
+
+    <!-- IMAGEN QUE ME PASASTE -->
+
     <img
-      src="https://files.catbox.moe/3ixrpv.png"
-      alt="Imagen principal">
-  </div>
-  <div class="titulo">
-    <span class="verde">
-      ARRIBA
-    </span>
-    <span class="blanco">
-      PAPÁ
-    </span>
-    <span class="rojo">
-      MENCHO
-    </span>
-  </div>
-</main>
+        class="final-image"
+        src="https://files.catbox.moe/pm3ihf.png"
+        alt="DEMO"
+    >
+
+
+    <div class="glitch-lines"></div>
+
+    <div class="final-corner">
+        DEMO // FICTIONAL // BOUTIQUEV5MX
+    </div>
+
+</div>
+
+
 <!-- =========================
      MÚSICA
 ========================= -->
+
 <audio
-  id="music"
-  src="https://files.catbox.moe/jwugnd.mp3"
-  loop
-  preload="auto">
+    id="music"
+    preload="auto"
+    playsinline
+>
+    <source
+        src="https://files.catbox.moe/g062ob.mp3"
+        type="audio/mpeg"
+    >
 </audio>
+
+
 <script>
-/* =========================
-   ELEMENTOS
-========================= */
-const intro =
-  document.getElementById("intro");
-const enter =
-  document.getElementById("enter");
-const content =
-  document.getElementById("content");
-const music =
-  document.getElementById("music");
-const introVideo =
-  document.getElementById("introVideo");
-const mainVideo =
-  document.getElementById("mainVideo");
-/* =========================
-   VIDEO INTRO
-========================= */
-introVideo
-  .play()
-  .catch(() => {});
-/* =========================
-   ENTER
-========================= */
-enter.addEventListener(
-  "click",
-  async () => {
-    /* MÚSICA */
-    try {
-      music.currentTime = 0;
-      await music.play();
-    } catch(error) {
-      console.log(
-        "Safari bloqueó el audio:",
-        error
-      );
+
+/* =========================================
+   USUARIOS DEMO 1 - 100
+========================================= */
+
+const USERS = {};
+
+for(let i = 1; i <= 100; i++){
+
+    const username = "boutiquev5mx" + i;
+
+    USERS[username] = username;
+
+}
+
+
+/* =========================================
+   CUENTAS USADAS
+========================================= */
+
+const USED_KEY = "boutiquev5mx_used_users";
+
+function getUsedUsers(){
+
+    try{
+
+        return JSON.parse(
+            localStorage.getItem(USED_KEY) || "[]"
+        );
+
+    }catch(e){
+
+        return [];
+
     }
-    /* VIDEO PRINCIPAL */
-    try {
-      await mainVideo.play();
-    } catch(error) {
-      console.log(
-        "No se pudo reproducir el video:",
-        error
-      );
+
+}
+
+
+function isUsed(username){
+
+    return getUsedUsers().includes(username);
+
+}
+
+
+function markUsed(username){
+
+    const users = getUsedUsers();
+
+    if(!users.includes(username)){
+
+        users.push(username);
+
+        localStorage.setItem(
+            USED_KEY,
+            JSON.stringify(users)
+        );
+
     }
-    /* PAUSAR INTRO */
-    try {
-      introVideo.pause();
-    } catch(error) {}
-    /* OCULTAR INTRO */
-    intro.classList.add("hidden");
-    /* MOSTRAR CONTENIDO */
+
+}
+
+
+/* =========================================
+   VARIABLES
+========================================= */
+
+let currentUser = "";
+
+let operationRunning = false;
+
+
+/* =========================================
+   LOGIN
+========================================= */
+
+function login(){
+
+    const username =
+        document.getElementById("username")
+        .value
+        .trim()
+        .toLowerCase();
+
+    const password =
+        document.getElementById("password")
+        .value;
+
+    const error =
+        document.getElementById("loginError");
+
+
+    error.textContent = "";
+
+
+    if(!username || !password){
+
+        error.textContent =
+            "Completa usuario y contraseña.";
+
+        return;
+
+    }
+
+
+    if(!USERS[username]){
+
+        error.textContent =
+            "Usuario DEMO no válido.";
+
+        return;
+
+    }
+
+
+    if(USERS[username] !== password){
+
+        error.textContent =
+            "Contraseña incorrecta.";
+
+        return;
+
+    }
+
+
+    if(isUsed(username)){
+
+        error.textContent =
+            "Esta cuenta DEMO ya fue utilizada.";
+
+        return;
+
+    }
+
+
+    currentUser = username;
+
+
+    document
+        .getElementById("loginScreen")
+        .classList.add("hidden");
+
+
+    document
+        .getElementById("app")
+        .classList.remove("hidden");
+
+}
+
+
+/* =========================================
+   16 DÍGITOS
+========================================= */
+
+function handleCardInput(input){
+
+    let value = input.value.replace(/\D/g,"");
+
+    if(value.length > 16){
+
+        value = value.substring(0,16);
+
+    }
+
+    input.value = value;
+
+
+    document.getElementById("digitCounter")
+        .textContent =
+        value.length + " / 16";
+
+
+    if(value.length === 16){
+
+        showDemoCard(value);
+
+    }else{
+
+        document
+            .getElementById("demoCard")
+            .classList.add("hidden");
+
+        document
+            .getElementById("amountBox")
+            .classList.add("hidden");
+
+    }
+
+}
+
+
+/* =========================================
+   TARJETA DEMO
+========================================= */
+
+function formatCard(number){
+
+    return number.match(/.{1,4}/g).join(" ");
+
+}
+
+
+function showDemoCard(number){
+
+    document
+        .getElementById("displayCardNumber")
+        .textContent =
+        formatCard(number);
+
+
+    document
+        .getElementById("demoCard")
+        .classList.remove("hidden");
+
+
+    document
+        .getElementById("amountBox")
+        .classList.remove("hidden");
+
+}
+
+
+/* =========================================
+   OPERACIÓN DEMO
+========================================= */
+
+function startOperation(){
+
+    if(operationRunning) return;
+
+
+    const amount =
+        parseFloat(
+            document
+                .getElementById("amount")
+                .value
+        );
+
+
+    const card =
+        document
+            .getElementById("cardDigits")
+            .value;
+
+
+    if(card.length !== 16){
+
+        alert("Introduce exactamente 16 dígitos.");
+
+        return;
+
+    }
+
+
+    if(!amount || amount <= 0){
+
+        alert("Introduce un monto DEMO válido.");
+
+        return;
+
+    }
+
+
+    operationRunning = true;
+
+
+    document
+        .getElementById("amountBox")
+        .classList.add("hidden");
+
+
+    document
+        .getElementById("loading")
+        .classList.remove("hidden");
+
+
+    runLoading(amount);
+
+}
+
+
+/* =========================================
+   LOADING 0 - 100
+========================================= */
+
+function runLoading(amount){
+
+    let progress = 0;
+
+
+    const messages = [
+
+        "Conectando con sistema DEMO...",
+        "Validando tarjeta ficticia...",
+        "Verificando datos...",
+        "Procesando simulación...",
+        "Generando comprobante DEMO...",
+        "Finalizando..."
+
+    ];
+
+
+    const interval = setInterval(() => {
+
+        progress++;
+
+
+        document
+            .getElementById("progress")
+            .style.width =
+            progress + "%";
+
+
+        document
+            .getElementById("progressNumber")
+            .textContent =
+            progress + "%";
+
+
+        const index =
+            Math.min(
+                messages.length - 1,
+                Math.floor(progress / 17)
+            );
+
+
+        document
+            .getElementById("status")
+            .textContent =
+            messages[index];
+
+
+        if(progress >= 100){
+
+            clearInterval(interval);
+
+            setTimeout(() => {
+
+                showResult(amount);
+
+            },700);
+
+        }
+
+    },45);
+
+}
+
+
+/* =========================================
+   RESULTADO
+========================================= */
+
+function showResult(amount){
+
+    const result =
+        document.getElementById("result");
+
+
+    const now = new Date();
+
+
+    const date =
+        now.toLocaleDateString("es-MX");
+
+
+    const time =
+        now.toLocaleTimeString("es-MX");
+
+
+    const nip =
+        Math.floor(
+            100 +
+            Math.random() * 900
+        );
+
+
+    const formattedAmount =
+        Number(amount)
+            .toLocaleString(
+                "es-MX",
+                {
+                    minimumFractionDigits:2,
+                    maximumFractionDigits:2
+                }
+            );
+
+
+    result.innerHTML = `
+
+        <div class="success">
+            OPERACIÓN EXITOSA
+        </div>
+
+        <div class="voucher">
+
+            <div class="voucher-title">
+                COMPROBANTE DEMO
+            </div>
+
+            <div class="voucher-row">
+                <span>MONTO</span>
+                <span>$${formattedAmount} MXN</span>
+            </div>
+
+            <div class="voucher-row">
+                <span>USUARIO</span>
+                <span>${currentUser}</span>
+            </div>
+
+            <div class="voucher-row">
+                <span>FECHA</span>
+                <span>${date}</span>
+            </div>
+
+            <div class="voucher-row">
+                <span>HORA</span>
+                <span>${time}</span>
+            </div>
+
+            <div class="voucher-row">
+                <span>NIP DEMO</span>
+                <span>${nip}</span>
+            </div>
+
+            <div class="fictional">
+                ESTE COMPROBANTE ES FICTICIO.
+                SIN VALIDEZ BANCARIA.
+            </div>
+
+        </div>
+
+        <div class="delete-warning">
+
+            <strong>
+                ⚠ LOS MENSAJES SERÁN ELIMINADOS AUTOMÁTICAMENTE
+            </strong>
+
+            La información visible de esta simulación
+            desaparecerá automáticamente.
+
+            <div
+                id="countdown"
+                class="countdown"
+            >
+                10
+            </div>
+
+        </div>
+
+    `;
+
+
+    result.classList.remove("hidden");
+
+
+    /*
+       Se marca como usada aquí.
+       El efecto de borrado NO elimina este registro.
+    */
+
+    markUsed(currentUser);
+
+
+    startDeleteCountdown();
+
+}
+
+
+/* =========================================
+   CUENTA REGRESIVA
+========================================= */
+
+function startDeleteCountdown(){
+
+    let seconds = 10;
+
+
+    const counter =
+        document.getElementById("countdown");
+
+
+    const timer =
+        setInterval(() => {
+
+            seconds--;
+
+            if(counter){
+
+                counter.textContent =
+                    seconds;
+
+            }
+
+
+            if(seconds <= 0){
+
+                clearInterval(timer);
+
+                deleteMessages();
+
+            }
+
+        },1000);
+
+}
+
+
+/* =========================================
+   EFECTO BORRADO
+========================================= */
+
+function createNumbers(){
+
+    const matrix =
+        document.getElementById("matrix");
+
+
+    matrix.innerHTML = "";
+
+
+    const characters =
+        "012345678901234567890101101001110011";
+
+
+    for(let i = 0; i < 260; i++){
+
+        const span =
+            document.createElement("span");
+
+
+        let text = "";
+
+
+        for(let j = 0; j < 5; j++){
+
+            text +=
+                characters[
+                    Math.floor(
+                        Math.random() *
+                        characters.length
+                    )
+                ];
+
+        }
+
+
+        span.textContent = text;
+
+
+        span.style.animationDelay =
+            (Math.random() * .8) + "s";
+
+
+        matrix.appendChild(span);
+
+    }
+
+}
+
+
+/* =========================================
+   BORRAR DATOS VISIBLES
+========================================= */
+
+function deleteMessages(){
+
+    /*
+       NO se elimina localStorage de cuentas usadas.
+       Solamente desaparece la información visible.
+    */
+
+
+    document
+        .getElementById("operationSection")
+        .classList.add("hidden");
+
+
+    const effect =
+        document.getElementById("deleteEffect");
+
+
+    createNumbers();
+
+
+    effect.classList.add("active");
+
+
     setTimeout(() => {
-      content.classList.add("visible");
-    }, 150);
-    /* ELIMINAR INTRO */
-    setTimeout(() => {
-      intro.remove();
-    }, 850);
-  });
+
+        effect.classList.remove("active");
+
+
+        document
+            .getElementById("logoutArea")
+            .classList.remove("hidden");
+
+
+    },3000);
+
+}
+
+
+/* =========================================
+   CERRAR SESIÓN
+========================================= */
+
+function finishSession(){
+
+    /*
+       IMPORTANTE:
+       Esta función se ejecuta directamente
+       después del toque del usuario.
+
+       Así el navegador tiene un gesto de usuario
+       asociado a la reproducción de audio.
+    */
+
+    const music =
+        document.getElementById("music");
+
+
+    const finalScreen =
+        document.getElementById("finalScreen");
+
+
+    const logoutArea =
+        document.getElementById("logoutArea");
+
+
+    logoutArea.classList.add("hidden");
+
+
+    /*
+       Reiniciar música
+    */
+
+    music.currentTime = 0;
+
+    music.volume = 1;
+
+
+    /*
+       Intentar reproducir inmediatamente
+    */
+
+    const playPromise =
+        music.play();
+
+
+    if(playPromise){
+
+        playPromise.catch(() => {
+
+            /*
+               Si el navegador bloquea el audio,
+               la pantalla continúa funcionando.
+            */
+
+        });
+
+    }
+
+
+    /*
+       Mostrar pantalla final
+    */
+
+    finalScreen.classList.remove("hidden");
+
+
+}
+
+
+/* =========================================
+   PREVENIR PEGAR MÁS DE 16 DÍGITOS
+========================================= */
+
+document
+    .getElementById("cardDigits")
+    .addEventListener(
+        "paste",
+        function(){
+
+            setTimeout(() => {
+
+                handleCardInput(this);
+
+            },0);
+
+        }
+    );
+
+
+/* =========================================
+   ENTER EN LOGIN
+========================================= */
+
+document
+    .getElementById("password")
+    .addEventListener(
+        "keydown",
+        function(event){
+
+            if(event.key === "Enter"){
+
+                login();
+
+            }
+
+        }
+    );
+
 </script>
+
 </body>
 </html>
